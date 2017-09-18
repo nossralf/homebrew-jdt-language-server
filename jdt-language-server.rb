@@ -8,7 +8,7 @@ class JdtLanguageServer < Formula
 
   bottle :unneeded
 
-  depends_on :java
+  depends_on :java => "1.8+"
 
   def install
     rm_rf "config_linux"
