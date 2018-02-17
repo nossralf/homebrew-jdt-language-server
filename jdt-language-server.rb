@@ -15,7 +15,7 @@ class JdtLanguageServer < Formula
     rm_rf "config_win"
     libexec.install ["config_mac", "features", "plugins"]
 
-    (bin/"jdt-ls").write <<-EOS.undent
+    (bin/"jdt-ls").write <<~EOS
       #!/bin/bash
       JDT_LS_HOME="#{libexec}"
       JDT_LS_LAUNCHER=$(find $JDT_LS_HOME -name "org.eclipse.equinox.launcher_*.jar")
