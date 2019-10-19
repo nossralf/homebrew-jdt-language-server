@@ -5,6 +5,7 @@ class JdtLanguageServer < Formula
   url "http://download.eclipse.org/jdtls/snapshots/jdt-language-server-0.43.0-201909120950.tar.gz"
   sha256 "85d8f1c53c7924e838df027f54f7e691eb689f3fd161679f266ac76120c32f3e"
   version "0.43.0-201909120950"
+  revision 1
 
   bottle :unneeded
 
