@@ -4,9 +4,7 @@ import os.path
 
 from pathlib import PurePath as Path
 from string import Template
-
-import bs4
-import requests
+from urllib.request import urlopen, Request
 
 
 def read_template():
@@ -22,16 +20,14 @@ def url(filename):
 
 
 def find_latest():
-    r = requests.get(url("latest.txt"))
-    r.raise_for_status()
-    return r.text.strip()
+    with urlopen(url("latest.txt")) as f:
+        return f.read().decode("utf-8").strip()
 
 
 def fetch_sha256(filename, hash_function="sha256"):
     sha256_file = ".".join([filename, hash_function])
-    r = requests.get(url(sha256_file))
-    r.raise_for_status()
-    return r.text.strip()
+    with urlopen(url(sha256_file)) as f:
+        return f.read().decode("utf-8").strip()
 
 
 def extract_version_string(filename):
@@ -40,8 +36,12 @@ def extract_version_string(filename):
 
 
 def file_exists(filename):
-    r = requests.head(url(filename))
-    return r.status_code < 400
+    rq = Request(url(filename), method="HEAD")
+    try:
+        urlopen(rq)
+    except:
+        return False
+    return True
 
 
 if __name__ == "__main__":
