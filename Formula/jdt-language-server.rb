@@ -1,14 +1,13 @@
 class JdtLanguageServer < Formula
-  desc "A Java language specific implementation of the Language Server Protocol"
+  desc "Java language specific implementation of the Language Server Protocol"
   homepage "https://github.com/eclipse/eclipse.jdt.ls"
 
   url "https://download.eclipse.org/jdtls/snapshots/jdt-language-server-0.60.0-202008270906.tar.gz"
   sha256 "a101b96047d19eb8d6e65f7475320c5807160aaf3af472dd341b38d815a7aac9"
-  version "0.60.0-202008270906"
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on java: "1.8+"
 
   def install
     rm_rf "config_linux"
