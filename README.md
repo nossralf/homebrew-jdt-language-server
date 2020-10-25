@@ -1,2 +1,1 @@
-# homebrew-jdt-language-server
-Homebrew formula for the Eclipse JDT Language Server
+This repository is archived and will no longer be updated.
